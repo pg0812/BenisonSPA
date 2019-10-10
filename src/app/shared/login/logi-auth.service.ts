@@ -30,9 +30,9 @@ trueUser : boolean =false;
     //console.log('Inside for'+JSON.stringify(this.userCred));
     for(let user in this.userCred){
     //  console.log('Inside for'+JSON.stringify(this.userCred[user]));
-   //console.log('Inside for1'+JSON.stringify(email+this.userCred[user].email));
+   console.log('Inside for1'+JSON.stringify(email+this.userCred[user].email));
       if(email==this.userCred[user].email && (password==this.userCred[user].password )){
-        if(this.userCred[user].designation=='Manager'){
+        if(this.userCred[user].designation=='manager'){
         
           this.trueUser=true;
           return this.userCred[user].designation ;
@@ -45,14 +45,14 @@ trueUser : boolean =false;
        
 
 
-      }
-      else if(this.trueUser==false){
+      }}
+       if(this.trueUser==false){
        
         return "Error";
         
 
       }
-    }
+    
   //  console.log(email+password);
 
   }

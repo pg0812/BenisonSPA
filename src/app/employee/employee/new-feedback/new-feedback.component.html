@@ -43,20 +43,16 @@
               <option value="Demo6">Demo5</option>
               <option value="Demo7">Demo6</option>
             </select>
+            
           </div>
           <div class="form-group">
             <label for="secret">Select Rating </label>  
-            <select
-              id="rating"
-              class="form-control"
-              [ngModel]="rating"
-              name="rating">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
+            <star-rating value="0" 
+            checkedcolor="black" 
+            uncheckedcolor="grey" 
+            size="24px"    
+            readonly="false" (rate)="onRate($event)">
+          </star-rating>
           </div>
           <div class="form-group">
               <label for="questionAnswer">Comments :</label>

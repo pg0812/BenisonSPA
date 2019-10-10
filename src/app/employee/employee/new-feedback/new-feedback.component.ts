@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StarRatingComponent } from 'ng-starrating';
 
 
 
@@ -6,6 +7,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { ActivatedRoute, Router ,Params} from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { FbService } from 'src/app/shared/fb.service';
+import { log } from 'util';
 
 @Component({
   selector: 'app-new-feedback',
@@ -16,11 +18,12 @@ export class NewFeedbackComponent implements OnInit {
 
   constructor(private newfb : FbService) { }
   submitted = false;
+  temprating : number;
   user = {
     empname: '',
     empid: '',
     Projname: '',
-    rating: '',
+    rating: 0,
     comments: ''
   };
   ngOnInit() {
@@ -35,7 +38,7 @@ export class NewFeedbackComponent implements OnInit {
     //this.authService.signinUser(email, password);
     this.submitted = true;
     this.user = form.value;
-    
+    this.user.rating= this.temprating;
    // console.log(JSON.stringify(this.form.value));
    console.log();
    
@@ -46,5 +49,9 @@ export class NewFeedbackComponent implements OnInit {
    
    } 
 
+   onRate($event:{oldValue:number, newValue:number, starRating:StarRatingComponent}) {
+    this.temprating =$event.newValue;
+  }
+ 
   }
 

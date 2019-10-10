@@ -24,10 +24,10 @@ export class LoginComponent implements OnInit {
     //this.authService.signinUser(email, password);
    
     this.Designation= this.loginService.loginUser(username,password);
-    console.log(this.Designation);
+    console.log('dffd'+this.Designation);
     if(this.Designation=='Employee')
     this.router.navigate(['employee']);
-    if(this.Designation=='Manager')
+    if(this.Designation=='manager')
     this.router.navigate(['manager']);
  
 

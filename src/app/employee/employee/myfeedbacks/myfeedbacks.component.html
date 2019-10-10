@@ -1,22 +1,37 @@
 <table class="table">
     <thead class="thead-dark" appBasicHighlight>
       <tr >
-        <th scope="col" >EmpName</th>
-        <th scope="col">Emp ID</th>
+       
         <th scope="col">Project Name</th>
         <th scope="col">Rating</th>
         <th scope="col">Comments</th>
+        <th scope="col">Mgr Rating</th>
+        <th scope="col">Mgr Comments</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let feedbacks of FBmodel; let i=index">
        
-        <td >{{feedbacks.empname}}</td>
-        <td>{{feedbacks.empid}}</td>
+       
         <td>{{feedbacks.Projname}}</td>
-        <td>{{feedbacks.rating}}</td>
+        <td> <star-rating value="{{feedbacks.rating}}" 
+          checkedcolor="black" 
+          uncheckedcolor="grey" 
+          size="24px"    
+          readonly="true" 
+          (rate)="onRate($event)">
+        </star-rating></td>
         <td>{{feedbacks.comments}}</td>
+        <td> <star-rating value="{{feedbacks.mgrrating}}" 
+          checkedcolor="black" 
+          uncheckedcolor="grey" 
+          size="24px"    
+          readonly="true" 
+          (rate)="onRate($event)">
+        </star-rating></td>
+        <td>{{feedbacks.mgrComments}}</td>
+
         <td><button type="button" (click)="deleteRecord(i)" class="btn btn-dark">Delete Record</button></td>
       </tr>
      <!--ss[{"empname":"Pratik","empid":"23456","Projname":"Demo5","rating":3,"comments":"A Project with good learning opportunities"}-->

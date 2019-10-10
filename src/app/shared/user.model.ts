@@ -3,6 +3,7 @@ export class UserCred {
   public email: string;
   public password: string;
   public designation : string
+  
 
 
   constructor(email: string, password: string,designation : string) {

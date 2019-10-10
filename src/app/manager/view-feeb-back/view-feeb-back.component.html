@@ -1,0 +1,43 @@
+<table class="table">
+  <thead class="thead-dark" appBasicHighlight>
+    <tr >
+      <th scope="col" >EmpName</th>
+      <th scope="col">Emp ID</th>
+      <th scope="col">Project Name</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Comments</th>
+      <th scope="col">Mgr Rating</th>
+      <th scope="col">Mgr Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let feedbacks of FBmodel; let i=index">
+     
+      <td >{{feedbacks.empname}}</td>
+      <td>{{feedbacks.empid}}</td>
+      <td>{{feedbacks.Projname}}</td>
+      <td> <star-rating value="{{feedbacks.rating}}" 
+        checkedcolor="black" 
+        uncheckedcolor="grey" 
+        size="15px"    
+        [readonly]="isReadonly" 
+        (rate)="onRate($event)">
+      </star-rating></td>
+      <td >{{feedbacks.comments}}</td>
+      <td><input [(ngModel)]="feedbacks.mgrComments" [readonly]="isReadonly" placeholder="Enter comments" #mgrcomments></td>
+      <td><star-rating value="0" 
+        checkedcolor="black" 
+        uncheckedcolor="grey" 
+        size="24px"    
+        readonly="false" (rate)="onRate($event)" #rating>
+      </star-rating></td>
+      
+      <td>
+        <button type="button" (click)="deleteRecord(i)" (click)="deleteRecord(i)" class="btn btn-danger btn-sm">Delete Record</button><br>
+        <button type="button" (click)="toggleReadonly()" class="btn btn-warning btn-sm">Add/Edit Comments</button><br>
+        <button type="button"   class="btn btn-success btn-sm" (click)="OnSubmit(mgrcomments,i,rating)">Submit</button>
+      </td>
+    </tr>
+   <!--ss[{"empname":"Pratik","empid":"23456","Projname":"Demo5","rating":3,"comments":"A Project with good learning opportunities"}-->
+  </tbody>
+</table>

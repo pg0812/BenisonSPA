@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './employee/header/header.component';
 import { BasicHighlightDirective } from '../shared/basic-highlight.directive';
+import { RatingModule } from 'ng-starrating';
 
 
 
@@ -15,8 +16,9 @@ import { BasicHighlightDirective } from '../shared/basic-highlight.directive';
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule,
-    ReactiveFormsModule
+    RatingModule,
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class EmployeeModule { }
